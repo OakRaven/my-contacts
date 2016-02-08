@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="large-10 columns">
+    <div data-alert class="alert-box" ng-show="vm.msg">{{vm.msg}}</div>
+    <form ng-submit="vm.addFormSubmit()" ng-show="vm.addFormShow">
+      <h3>Add Contact</h3>
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Name:
+            <input type="text" ng-model="vm.model.name" placeholder="Contact Name" required>
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>Email:
+            <input type="text" ng-model="vm.model.email" placeholder="Contact Email" required>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Company:
+            <input type="text" ng-model="vm.model.company" placeholder="Company Name">
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>Work Phone:
+            <input type="text" ng-model="vm.model.work_phone" placeholder="Work Phone">
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Mobile Phone:
+            <input type="text" ng-model="vm.model.mobile_phone" placeholder="Mobile Phone">
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>Home Phone:
+            <input type="text" ng-model="vm.model.home_phone" placeholder="Home Phone">
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Street Address:
+            <input type="text" ng-model="vm.model.street_address" placeholder="Street Address">
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>City:
+            <input type="text" ng-model="vm.model.city" placeholder="City">
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <label>State:
+            <input type="text" ng-model="vm.model.state" placeholder="State">
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>Zip Code:
+            <input type="text" ng-model="vm.model.zipcode" placeholder="Zip Code">
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 columns">
+          <input type="submit" value="Add Contact" class="button">
+        </div>
+      </div>
+    </form>
+    <h3>Your Contacts ({{vm.contacts.length}})</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 200px;">Name</th>
+          <th style="width: 200px;">Company</th>
+          <th style="width: 25%;">Email</th>
+          <th style="width: 25%;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="contact in vm.contacts">
+          <td><a href="#">{{contact.name}}</a></td>
+          <td>{{contact.company}}</td>
+          <td>{{contact.email}}</td>
+          <td>
+            <a href="" class="button tiny" ng-click="vm.showEditForm(contact)">Edit</a>
+            <a href="" class="button tiny alert" ng-click="vm.removeContact(contact)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="small-12 large-2 columns">
+    <a href="" class="button large" ng-hide="vm.addFormShow" ng-click="vm.toggleAddForm()">+</a>
+    <a href="" class="button large" ng-show="vm.addFormShow" ng-click="vm.toggleAddForm()">-</a>
+  </div>
+</div>
